@@ -90,18 +90,21 @@ const Home = () => {
 
         {/* Meteor Shower */}
         <div className="meteor-shower-container">
-          {[...Array(15)].map((_, i) => (
-            <span
-              key={i}
-              className="meteor-effect"
-              style={{
-                top: Math.floor(Math.random() * 50) + '%',
-                left: 50 + Math.floor(Math.random() * 50) + '%',
-                animationDelay: i * 0.8 + 's',
-                animationDuration: Math.floor(Math.random() * 3 + 3) + 's',
-              }}
-            ></span>
-          ))}
+          <div className="meteor meteor-1"></div>
+          <div className="meteor meteor-2"></div>
+          <div className="meteor meteor-3"></div>
+          <div className="meteor meteor-4"></div>
+          <div className="meteor meteor-5"></div>
+          <div className="meteor meteor-6"></div>
+          <div className="meteor meteor-7"></div>
+          <div className="meteor meteor-8"></div>
+          <div className="meteor meteor-9"></div>
+          <div className="meteor meteor-10"></div>
+          <div className="meteor meteor-11"></div>
+          <div className="meteor meteor-12"></div>
+          <div className="meteor meteor-13"></div>
+          <div className="meteor meteor-14"></div>
+          <div className="meteor meteor-15"></div>
         </div>
       </div>
 

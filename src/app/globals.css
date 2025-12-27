@@ -1178,44 +1178,152 @@ html {
     0 0 40px var(--accent-secondary);
 }
 
-/* Meteor Shower Animation */
+/* Meteor Shower Animation - 15 meteors with randomized positions */
 @keyframes meteor {
   0% {
-    transform: rotate(215deg) translateX(0);
     opacity: 1;
+    margin-top: -300px;
+    margin-right: -300px;
   }
 
-  70% {
-    opacity: 1;
+  12% {
+    opacity: 0;
+  }
+
+  15% {
+    margin-top: 300px;
+    margin-left: -600px;
+    opacity: 0;
   }
 
   100% {
-    transform: rotate(215deg) translateX(-1000px);
     opacity: 0;
   }
 }
 
-.meteor-effect {
+/* Base meteor styles */
+.meteor {
   position: absolute;
   width: 300px;
   height: 1px;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
-  animation: meteor linear infinite;
-  transform: rotate(215deg);
+  transform: rotate(-45deg);
+  background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
 }
 
-/* Bright head point of the meteor */
-.meteor-effect::before {
-  content: '';
+.meteor::before {
+  content: "";
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   width: 4px;
-  height: 4px;
+  height: 5px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8), 0 0 12px 4px rgba(100, 180, 255, 0.6);
+  margin-top: -2px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 15px 3px #fff;
+}
+
+/* Individual meteor positions and timing */
+.meteor-1 {
+  top: 83px;
+  left: 45%;
+  animation: meteor 5.2s linear infinite;
+}
+
+.meteor-2 {
+  top: 192px;
+  left: 67%;
+  animation: meteor 7.8s linear infinite;
+  animation-delay: 0.3s;
+}
+
+.meteor-3 {
+  top: 67px;
+  left: 23%;
+  animation: meteor 4.1s linear infinite;
+  animation-delay: 1.2s;
+}
+
+.meteor-4 {
+  top: 245px;
+  left: 89%;
+  animation: meteor 6.5s linear infinite;
+  animation-delay: 0.8s;
+}
+
+.meteor-5 {
+  top: 134px;
+  left: 34%;
+  animation: meteor 8.3s linear infinite;
+  animation-delay: 2.1s;
+}
+
+.meteor-6 {
+  top: 78px;
+  left: 78%;
+  animation: meteor 5.7s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.meteor-7 {
+  top: 156px;
+  left: 12%;
+  animation: meteor 9.2s linear infinite;
+  animation-delay: 1.8s;
+}
+
+.meteor-8 {
+  top: 289px;
+  left: 56%;
+  animation: meteor 4.6s linear infinite;
+  animation-delay: 3.2s;
+}
+
+.meteor-9 {
+  top: 112px;
+  left: 91%;
+  animation: meteor 7.1s linear infinite;
+  animation-delay: 0.9s;
+}
+
+.meteor-10 {
+  top: 198px;
+  left: 43%;
+  animation: meteor 5.9s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.meteor-11 {
+  top: 45px;
+  left: 65%;
+  animation: meteor 8.7s linear infinite;
+  animation-delay: 1.4s;
+}
+
+.meteor-12 {
+  top: 267px;
+  left: 21%;
+  animation: meteor 6.2s linear infinite;
+  animation-delay: 3.8s;
+}
+
+.meteor-13 {
+  top: 89px;
+  left: 82%;
+  animation: meteor 4.9s linear infinite;
+  animation-delay: 0.6s;
+}
+
+.meteor-14 {
+  top: 178px;
+  left: 38%;
+  animation: meteor 7.4s linear infinite;
+  animation-delay: 2.9s;
+}
+
+.meteor-15 {
+  top: 223px;
+  left: 74%;
+  animation: meteor 5.4s linear infinite;
+  animation-delay: 1.7s;
 }
 
 .meteor-shower-container {
