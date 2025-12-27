@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 type CertificateCategory = 'all' | 'professional' | 'courses' | 'hackathons' | 'college' | 'other';
 
@@ -311,7 +311,7 @@ const Certificates = () => {
                       </div>
                     )
                   ) : (
-                    <Image
+                    <NextImage
                       src={filePath}
                       alt={cert.title}
                       fill
@@ -458,7 +458,7 @@ const Certificates = () => {
                 />
               ) : (
                 <div className="flex items-center justify-center p-4 min-h-full">
-                  <Image
+                  <NextImage
                     src={selectedCert}
                     alt="Certificate"
                     width={900}

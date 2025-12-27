@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 type ProjectCategory = 'all' | 'web-development' | 'ai-ml' | 'automation' | 'cybersecurity' | 'birthday-gifts' | 'hackathons';
 
@@ -54,13 +54,13 @@ const Projects = () => {
     { title: 'My First Game', description: 'First game created using Next.js.', image: '/assets/img/first-game.png', link: 'https://first-game-arshad-euge94wgj-arshad-pashas-projects-d7ff6964.vercel.app/', category: ['web-development'] },
     { title: 'Digital Art Sample Website', description: 'Sample digital art website with WhatsApp integration.', image: '/assets/img/digital-art.png', link: 'https://sample-digital-art.netlify.app/', category: ['web-development'] },
     { title: 'Myntra Clone', description: 'Myntra clone using JavaScript on 6/9/2025.', image: '/assets/img/myntra-clone.png', link: 'https://arshad-project11.netlify.app/', category: ['web-development'] },
-    
+
     // AI/ML Projects
     { title: 'Criminal Identification System', description: 'Criminal identification system using Python on 03/07/2024.', video: 'https://www.youtube.com/embed/0lMsasNGoFA?si=6MN3SDWZu9Xyq1TM', isVideo: true, category: ['ai-ml'] },
     { title: 'Library Management System', description: 'Library management system project on 10/06/2025.', video: 'https://www.youtube.com/embed/ULIltpxyJu0?si=ctn2WwGBxJP5Nmvo', isVideo: true, category: ['ai-ml', 'automation'] },
     { title: 'ElementMix - Chemical Simulator', description: 'Chemical reaction simulator ISRO project on 3/06/25.', image: '/assets/img/elementmix.png', link: 'https://elementmix-isro-project.onrender.com', category: ['ai-ml'] },
     { title: 'Image to Text Website', description: 'OCR-based image to text converter.', image: '/assets/img/project10.png', link: 'https://youtu.be/C-tSQfC5huw?si=loKCZs04CWpDi8z5', category: ['ai-ml'] },
-    
+
     // Automation Projects
     { title: 'Pro 7 Automation Bot', description: 'Automation bot built in 2024.', video: 'https://www.youtube.com/embed/0J1fgZZZkXE?si=96MBmtZSkl6K9C7B', isVideo: true, category: ['automation'] },
     { title: 'Auto Excel Mail Project', description: 'Automated Excel email project in 2024.', video: 'https://www.youtube.com/embed/6-Sw3ylBdmo?si=oeuwNzhr8xH7vOvX', isVideo: true, category: ['automation'] },
@@ -69,10 +69,10 @@ const Projects = () => {
     { title: 'Data Entry UiPath Project', description: 'Advanced automation project with UiPath 2024/2025.', video: 'https://www.youtube.com/embed/MiwuCoPdHPU?si=FCmnvBhWaOC6flsJ', isVideo: true, category: ['automation'] },
     { title: 'KIOSK OS Library System', description: 'Real-time working system in college - 2025.', video: 'https://www.youtube.com/embed/ztMWIy6vX5k?si=ty4XuA4NLNhwNfVr', isVideo: true, category: ['automation'] },
     { title: 'Chrome Extension', description: 'Custom Chrome extension project.', image: '/assets/img/project9new.png', link: 'https://youtu.be/rNEbBEcnUtc?si=aT-Yzc_W2FbsVRoC', category: ['automation'] },
-    
+
     // Cybersecurity Projects
     { title: 'Encrypt Decrypt Project', description: 'Encryption/Decryption cybersecurity project on 23/06/2025.', image: '/assets/img/project5.png', link: 'https://project-5-encrypt-decrypt-project-w9hq.onrender.com/', category: ['cybersecurity'] },
-    
+
     // Hackathon Projects
     { title: 'Total Wellness Hackathon', description: 'First competition website at Hindustan College, Mysore on 22/03/2024.', image: '/assets/img/totalwellness.netlify.app.png', link: 'https://totalwellness.netlify.app/', category: ['hackathons', 'web-development'] },
     { title: 'Infosys Smart Recycling', description: 'Smart recycling solution at Infosys 48-hour hackathon on 11-12 July 2025.', image: '/assets/img/infosys_hackthon.png', link: 'https://smart-recyle.netlify.app/', category: ['hackathons', 'web-development'] },
@@ -94,8 +94,8 @@ const Projects = () => {
   };
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="min-h-screen bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto w-full">
@@ -122,8 +122,8 @@ const Projects = () => {
                 className={`
                   flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium
                   transition-all duration-300 border
-                  ${activeCategory === cat.key 
-                    ? 'bg-accent-primary text-white border-accent-primary shadow-lg shadow-accent-primary/30 scale-105' 
+                  ${activeCategory === cat.key
+                    ? 'bg-accent-primary text-white border-accent-primary shadow-lg shadow-accent-primary/30 scale-105'
                     : 'bg-card-bg text-text-secondary border-card-border hover:bg-card-bg-hover hover:text-text-primary hover:border-accent-primary/50'
                   }
                 `}
@@ -135,7 +135,7 @@ const Projects = () => {
               </button>
             ))}
           </div>
-          
+
           {/* Project Count */}
           <div className="text-center mt-4">
             <span className="text-text-tertiary text-sm">
@@ -147,7 +147,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {displayedProjects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className="group bg-card-bg backdrop-blur-sm border border-card-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-accent-primary/10 transition-all duration-500 hover:-translate-y-2"
             >
@@ -155,13 +155,13 @@ const Projects = () => {
               <div className="relative h-48 sm:h-52 overflow-hidden">
                 {project.isVideo ? (
                   <div className="w-full h-full">
-                    <iframe 
-                      width="100%" 
-                      height="100%" 
-                      src={project.video} 
-                      title={project.title} 
-                      frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={project.video}
+                      title={project.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="object-cover"
                       loading="lazy"
@@ -169,16 +169,16 @@ const Projects = () => {
                   </div>
                 ) : (
                   <>
-                    <Image 
-                      src={project.image!} 
-                      alt={project.title} 
+                    <NextImage
+                      src={project.image!}
+                      alt={project.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="flex gap-3">
@@ -203,11 +203,11 @@ const Projects = () => {
                     </div>
                   </>
                 )}
-                
+
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3 flex flex-wrap gap-1">
                   {project.category.slice(0, 2).map((cat, i) => (
-                    <span 
+                    <span
                       key={i}
                       className="bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full"
                     >
@@ -225,7 +225,7 @@ const Projects = () => {
                 <p className="text-text-secondary text-sm line-clamp-2 mb-4">
                   {project.description || 'An exciting project showcasing creative development skills.'}
                 </p>
-                
+
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button
@@ -288,11 +288,11 @@ const Projects = () => {
 
       {/* Project Modal */}
       {selectedProject && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           onClick={closeModal}
         >
-          <div 
+          <div
             className="relative bg-bg-secondary border border-card-border rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -310,19 +310,19 @@ const Projects = () => {
             {/* Media */}
             <div className="relative h-64 sm:h-80 md:h-96">
               {selectedProject.isVideo ? (
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={selectedProject.video} 
-                  title={selectedProject.title} 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={selectedProject.video}
+                  title={selectedProject.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               ) : (
-                <Image 
-                  src={selectedProject.image!} 
-                  alt={selectedProject.title} 
+                <NextImage
+                  src={selectedProject.image!}
+                  alt={selectedProject.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 896px"
                   className="object-cover"
@@ -334,7 +334,7 @@ const Projects = () => {
             <div className="p-6 sm:p-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedProject.category.map((cat, i) => (
-                  <span 
+                  <span
                     key={i}
                     className="bg-accent-primary/20 text-accent-primary text-xs px-3 py-1 rounded-full font-medium"
                   >
@@ -342,7 +342,7 @@ const Projects = () => {
                   </span>
                 ))}
               </div>
-              
+
               <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-3">
                 {selectedProject.title}
               </h3>

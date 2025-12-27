@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { gsap } from 'gsap';
 import PixelEffect from './PixelEffect';
 import ThemeToggle from './ThemeToggle';
@@ -95,7 +95,7 @@ const Navbar = () => {
     window.addEventListener('resize', onResize);
 
     if (document.fonts) {
-      document.fonts.ready.then(layout).catch(() => {});
+      document.fonts.ready.then(layout).catch(() => { });
     }
 
     const menu = mobileMenuRef.current;
@@ -257,11 +257,11 @@ const Navbar = () => {
           ref={logoRef}
           className="inline-flex items-center justify-center overflow-visible w-[64px] h-[64px] hover:scale-110 transition-transform"
         >
-          <Image 
-            src="/ap_logo.png" 
-            alt="Logo" 
-            width={64} 
-            height={64} 
+          <NextImage
+            src="/ap_logo.png"
+            alt="Logo"
+            width={64}
+            height={64}
             ref={logoImgRef}
             className="w-full h-full object-contain"
           />
@@ -281,16 +281,15 @@ const Navbar = () => {
                   <a
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href, i)}
-                    className={`relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[13px] leading-[0] uppercase tracking-[0.8px] whitespace-nowrap cursor-pointer px-5 py-2 transition-colors duration-300 ${
-                      isActive 
-                        ? 'bg-nav-active-bg text-accent-secondary' 
+                    className={`relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[13px] leading-[0] uppercase tracking-[0.8px] whitespace-nowrap cursor-pointer px-5 py-2 transition-colors duration-300 ${isActive
+                        ? 'bg-nav-active-bg text-accent-secondary'
                         : 'bg-transparent text-nav-text hover:bg-nav-active-bg hover:text-nav-text-hover'
-                    }`}
+                      }`}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
                   >
                     {/* Pixel Effect Canvas - Always active for current section */}
-                    <PixelEffect 
+                    <PixelEffect
                       isActive={isActive || hoveredIndex === i}
                       gap={3}
                       speed={isActive ? 40 : 60}
@@ -306,17 +305,15 @@ const Navbar = () => {
                     />
                     <span className="relative inline-block leading-[1] z-[2]">
                       <span
-                        className={`pill-label relative z-[2] inline-block leading-[1] ${
-                          isActive ? 'text-accent-secondary font-bold' : ''
-                        }`}
+                        className={`pill-label relative z-[2] inline-block leading-[1] ${isActive ? 'text-accent-secondary font-bold' : ''
+                          }`}
                         style={{ willChange: 'transform' }}
                       >
                         {item.name}
                       </span>
                       <span
-                        className={`pill-label-hover absolute left-0 top-0 z-[3] inline-block ${
-                          isActive ? 'text-accent-secondary' : 'text-nav-text-hover'
-                        }`}
+                        className={`pill-label-hover absolute left-0 top-0 z-[3] inline-block ${isActive ? 'text-accent-secondary' : 'text-nav-text-hover'
+                          }`}
                         style={{ willChange: 'transform, opacity' }}
                         aria-hidden="true"
                       >
@@ -339,7 +336,7 @@ const Navbar = () => {
         {/* Theme Toggle & Mobile Hamburger */}
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          
+
           <button
             ref={hamburgerRef}
             onClick={toggleMobileMenu}
