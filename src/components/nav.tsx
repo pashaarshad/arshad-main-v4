@@ -282,8 +282,8 @@ const Navbar = () => {
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href, i)}
                     className={`relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[13px] leading-[0] uppercase tracking-[0.8px] whitespace-nowrap cursor-pointer px-5 py-2 transition-colors duration-300 ${isActive
-                        ? 'bg-nav-active-bg text-accent-secondary'
-                        : 'bg-transparent text-nav-text hover:bg-nav-active-bg hover:text-nav-text-hover'
+                      ? 'bg-nav-active-bg text-accent-secondary'
+                      : 'bg-transparent text-nav-text hover:bg-nav-active-bg hover:text-nav-text-hover'
                       }`}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
@@ -354,6 +354,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
+        style={{ visibility: 'hidden', opacity: 0 }}
         className="md:hidden absolute top-[80px] left-4 right-4 rounded-2xl shadow-2xl nav-gradient backdrop-blur-lg origin-top border border-nav-border"
       >
         <ul className="list-none m-0 p-2 flex flex-col gap-1">

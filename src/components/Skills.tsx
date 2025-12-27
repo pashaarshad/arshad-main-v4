@@ -64,6 +64,7 @@ const Skills = () => {
   const sphereRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const animationRef = useRef<number>(0);
   const rotationRef = useRef({ x: 0, y: 0 });
   const targetRotationRef = useRef({ x: 0, y: 0 });
@@ -115,9 +116,27 @@ const Skills = () => {
     return () => ctx.revert();
   }, []);
 
+  // Intersection Observer for visibility
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsVisible(entries[0].isIntersecting);
+      },
+      { threshold: 0.1 } // Start animating when 10% visible
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   // Smooth animation loop
   useEffect(() => {
-    if (!isMounted) return;
+    if (!isMounted || !isVisible) {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      return;
+    }
 
     let lastTime = Date.now();
 
@@ -147,7 +166,7 @@ const Skills = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovering, isMounted]);
+  }, [isHovering, isMounted, isVisible]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!sphereRef.current) return;
