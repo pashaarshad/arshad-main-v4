@@ -5,9 +5,11 @@ import { gsap } from 'gsap';
 import Typed from 'typed.js';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
-import PixelBlast from './PixelBlast';
+
 import NextImage from 'next/image';
 import 'swiper/css';
+
+
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
@@ -17,6 +19,7 @@ const Home = () => {
   const typedRef = useRef<HTMLSpanElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -76,28 +79,8 @@ const Home = () => {
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300 -mt-32 pt-40"
       suppressHydrationWarning
     >
-      {/* PixelBlast Background */}
-      <div className="absolute inset-0 z-0">
-        <PixelBlast
-          variant="circle"
-          pixelSize={6}
-          color="rgb(118, 244, 133)"
-          patternScale={3}
-          patternDensity={1.2}
-          liquid={true}
-          liquidStrength={0.18}
-          liquidRadius={1.8}
-          pixelSizeJitter={0.5}
-          enableRipples={true}
-          rippleIntensityScale={2.5}
-          rippleThickness={0.2}
-          rippleSpeed={0.5}
-          liquidWobbleSpeed={5}
-          transparent={true}
-          edgeFade={0.25}
-          speed={0.6}
-        />
-      </div>
+      {/* PixelBlast Background - Only on Desktop */}
+
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
