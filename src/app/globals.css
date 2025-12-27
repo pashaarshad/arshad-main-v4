@@ -44,8 +44,8 @@
 /* Light Theme Variables - Optimized for readability & professional feel */
 :root[data-theme="light"] {
   /* Background Colors - Soft, easy on eyes */
-  --bg-primary: #fafbfc;
-  --bg-secondary: #f6f8fa;
+  --bg-primary: #a8f078;
+  --bg-secondary: #80eb86;
   --bg-tertiary: #ffffff;
 
   /* Text Colors - High contrast for readability */

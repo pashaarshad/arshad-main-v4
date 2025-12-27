@@ -246,7 +246,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 left-0 right-0 z-50 w-full px-4 py-4 transition-colors duration-300">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-4 transition-colors duration-300">
       <nav className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 py-2 nav-gradient backdrop-blur-md border border-nav-border rounded-full shadow-2xl transition-colors duration-300">
         {/* Logo */}
         <a
