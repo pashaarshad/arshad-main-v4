@@ -67,7 +67,7 @@ const Skills = () => {
   const animationRef = useRef<number>(0);
   const rotationRef = useRef({ x: 0, y: 0 });
   const targetRotationRef = useRef({ x: 0, y: 0 });
-  const velocityRef = useRef({ x: 10, y: 15 }); // Base auto-rotation velocity
+  const velocityRef = useRef({ x: 5, y: 8 }); // Base auto-rotation velocity
 
   // Fix hydration - only render sphere on client
   useEffect(() => {

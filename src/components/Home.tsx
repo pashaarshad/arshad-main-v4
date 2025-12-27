@@ -24,25 +24,25 @@ const Home = () => {
     tl.fromTo(
       titleRef.current,
       { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1 }
+      { opacity: 1, y: 0, duration: 1.5 }
     )
       .fromTo(
         subtitleRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        '-=0.5'
+        { opacity: 1, y: 0, duration: 1.2 },
+        '-=0.8'
       )
       .fromTo(
         ctaRef.current,
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 0.6 },
-        '-=0.4'
+        { opacity: 1, scale: 1, duration: 1 },
+        '-=0.6'
       )
       .fromTo(
         socialRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.3'
+        { opacity: 1, y: 0, duration: 1 },
+        '-=0.5'
       );
 
     // Typed.js animation
