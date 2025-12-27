@@ -31,6 +31,12 @@ const Projects = () => {
   ];
 
   const projects: Project[] = [
+    // --- FEATURED TOP 3 ---
+    { title: 'Criminal Identification System', description: 'Criminal identification system using Python on 03/07/2024.', video: 'https://www.youtube.com/embed/0lMsasNGoFA?si=6MN3SDWZu9Xyq1TM', isVideo: true, category: ['ai-ml'] },
+    { title: 'Library Management System', description: 'Library management system project on 10/06/2025.', video: 'https://www.youtube.com/embed/ULIltpxyJu0?si=ctn2WwGBxJP5Nmvo', isVideo: true, category: ['ai-ml', 'automation'] },
+    { title: 'Encrypt Decrypt Project', description: 'Encryption/Decryption cybersecurity project on 23/06/2025.', image: '/assets/img/project5.png', link: 'https://project-5-encrypt-decrypt-project-w9hq.onrender.com/', category: ['cybersecurity'] },
+
+    // --- OTHER PROJECTS ---
     // Web Development Projects
     { title: 'PUC College Website', description: 'This is the first website of my PU college, created in the year 2021–22.', image: '/assets/img/arshad786.42web.io.png', link: 'https://arshadpuc.netlify.app/', category: ['web-development'] },
     { title: 'My Personal Website', description: 'Personal website to store personal files, created in 2022.', image: '/assets/img/arshad65.42web.io.png', link: 'https://arshadold.netlify.app/', category: ['web-development'] },
@@ -55,13 +61,11 @@ const Projects = () => {
     { title: 'Digital Art Sample Website', description: 'Sample digital art website with WhatsApp integration.', image: '/assets/img/digital-art.png', link: 'https://sample-digital-art.netlify.app/', category: ['web-development'] },
     { title: 'Myntra Clone', description: 'Myntra clone using JavaScript on 6/9/2025.', image: '/assets/img/myntra-clone.png', link: 'https://arshad-project11.netlify.app/', category: ['web-development'] },
 
-    // AI/ML Projects
-    { title: 'Criminal Identification System', description: 'Criminal identification system using Python on 03/07/2024.', video: 'https://www.youtube.com/embed/0lMsasNGoFA?si=6MN3SDWZu9Xyq1TM', isVideo: true, category: ['ai-ml'] },
-    { title: 'Library Management System', description: 'Library management system project on 10/06/2025.', video: 'https://www.youtube.com/embed/ULIltpxyJu0?si=ctn2WwGBxJP5Nmvo', isVideo: true, category: ['ai-ml', 'automation'] },
+    // AI/ML Projects (Remaining)
     { title: 'ElementMix - Chemical Simulator', description: 'Chemical reaction simulator ISRO project on 3/06/25.', image: '/assets/img/elementmix.png', link: 'https://elementmix-isro-project.onrender.com', category: ['ai-ml'] },
     { title: 'Image to Text Website', description: 'OCR-based image to text converter.', image: '/assets/img/project10.png', link: 'https://youtu.be/C-tSQfC5huw?si=loKCZs04CWpDi8z5', category: ['ai-ml'] },
 
-    // Automation Projects
+    // Automation Projects (Remaining)
     { title: 'Pro 7 Automation Bot', description: 'Automation bot built in 2024.', video: 'https://www.youtube.com/embed/0J1fgZZZkXE?si=96MBmtZSkl6K9C7B', isVideo: true, category: ['automation'] },
     { title: 'Auto Excel Mail Project', description: 'Automated Excel email project in 2024.', video: 'https://www.youtube.com/embed/6-Sw3ylBdmo?si=oeuwNzhr8xH7vOvX', isVideo: true, category: ['automation'] },
     { title: 'Word Auto PDF Project', description: 'Automated Word to PDF conversion in 2024.', video: 'https://www.youtube.com/embed/SmrUFrmVXxo?si=mGnPHkdeSd0wjeK4', isVideo: true, category: ['automation'] },
@@ -69,9 +73,6 @@ const Projects = () => {
     { title: 'Data Entry UiPath Project', description: 'Advanced automation project with UiPath 2024/2025.', video: 'https://www.youtube.com/embed/MiwuCoPdHPU?si=FCmnvBhWaOC6flsJ', isVideo: true, category: ['automation'] },
     { title: 'KIOSK OS Library System', description: 'Real-time working system in college - 2025.', video: 'https://www.youtube.com/embed/ztMWIy6vX5k?si=ty4XuA4NLNhwNfVr', isVideo: true, category: ['automation'] },
     { title: 'Chrome Extension', description: 'Custom Chrome extension project.', image: '/assets/img/project9new.png', link: 'https://youtu.be/rNEbBEcnUtc?si=aT-Yzc_W2FbsVRoC', category: ['automation'] },
-
-    // Cybersecurity Projects
-    { title: 'Encrypt Decrypt Project', description: 'Encryption/Decryption cybersecurity project on 23/06/2025.', image: '/assets/img/project5.png', link: 'https://project-5-encrypt-decrypt-project-w9hq.onrender.com/', category: ['cybersecurity'] },
 
     // Hackathon Projects
     { title: 'Total Wellness Hackathon', description: 'First competition website at Hindustan College, Mysore on 22/03/2024.', image: '/assets/img/totalwellness.netlify.app.png', link: 'https://totalwellness.netlify.app/', category: ['hackathons', 'web-development'] },
@@ -83,7 +84,7 @@ const Projects = () => {
     return projects.filter(project => project.category.includes(activeCategory));
   }, [activeCategory]);
 
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3); // UPDATED: 6 -> 3
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -259,7 +260,7 @@ const Projects = () => {
         </div>
 
         {/* View All / Show Less Button */}
-        {filteredProjects.length > 6 && (
+        {filteredProjects.length > 3 && ( // UPDATED: 6 -> 3
           <div className="text-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
