@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "Jy2hLrkKoXVhPHq7Xs7c3Bcu7LfLVV1ly2Ng1_ju0Oo",
   },
   alternates: {
     canonical: "https://arshadpasha.com",
