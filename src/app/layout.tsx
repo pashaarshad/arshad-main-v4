@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono, Cherry_Cream_Soda } from "next/font/google";
+import { Poppins, Orbitron } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 
-const geistSans = Inter({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Roboto_Mono({
-  variable: "--font-geist-mono",
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
   subsets: ["latin"],
-});
-
-const cherryCreamSoda = Cherry_Cream_Soda({
-  variable: "--font-cherry-cream",
-  weight: "400",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const viewport = {
@@ -217,7 +213,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cherryCreamSoda.variable} antialiased`}
+        className={`${poppins.variable} ${orbitron.variable} antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>

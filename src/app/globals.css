@@ -2,26 +2,31 @@
 
 /* Default theme (dark) - Applied before JavaScript loads */
 :root {
-  /* Background Colors - Deep but not pure black */
+  /* Background Colors */
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
 
-  /* Text Colors - Optimized contrast (not pure white) */
+  /* Text Colors */
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --text-tertiary: #94a3b8;
 
-  /* Accent Colors - Vibrant but eye-friendly */
+  /* Accent Colors */
   --accent-primary: #3b82f6;
-  --accent-secondary: #fbbf24;
+  --accent-secondary: #f59e0b;
+  /* Updated to Amber */
   --accent-hover: #60a5fa;
 
-  /* Border Colors - Subtle in dark mode */
+  /* Utility Colors */
+  --success: #22c55e;
+  --destructive: #ef4444;
+
+  /* Border Colors */
   --border-primary: #334155;
   --border-secondary: #475569;
 
-  /* Card Colors - Elevated surfaces */
+  /* Card Colors */
   --card-bg: rgba(30, 41, 59, 0.6);
   --card-bg-hover: rgba(51, 65, 85, 0.8);
   --card-border: #334155;
@@ -30,7 +35,7 @@
   --nav-bg: rgba(15, 23, 42, 0.95);
   --nav-border: rgba(59, 130, 246, 0.4);
   --nav-text: #e2e8f0;
-  --nav-text-hover: #fbbf24;
+  --nav-text-hover: #f59e0b;
   --nav-active-bg: rgba(59, 130, 246, 0.15);
 
   /* Gradient Backgrounds */
@@ -39,6 +44,21 @@
 
   /* Shadow */
   --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-orbitron), sans-serif;
 }
 
 /* Light Theme Variables - Optimized for readability & professional feel */
@@ -94,9 +114,11 @@
   --text-secondary: #cbd5e1;
   --text-tertiary: #94a3b8;
 
-  /* Accent Colors - Vibrant but eye-friendly */
+  /* Accent Colors */
   --accent-primary: #3b82f6;
-  --accent-secondary: #fbbf24;
+  /* Blue */
+  --accent-secondary: #f59e0b;
+  /* Amber/Yellow */
   --accent-hover: #60a5fa;
 
   /* Border Colors - Subtle in dark mode */
