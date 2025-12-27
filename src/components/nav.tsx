@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import NextImage from 'next/image';
 import { gsap } from 'gsap';
 import PixelEffect from './PixelEffect';
-import ThemeToggle from './ThemeToggle';
+
 
 const Navbar = () => {
   const navItems = [
@@ -335,7 +335,7 @@ const Navbar = () => {
 
         {/* Theme Toggle & Mobile Hamburger */}
         <div className="flex items-center gap-3">
-          <ThemeToggle />
+
 
           <button
             ref={hamburgerRef}

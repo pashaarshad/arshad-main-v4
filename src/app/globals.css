@@ -2,48 +2,57 @@
 
 /* Default theme (dark) - Applied before JavaScript loads */
 :root {
-  /* Background Colors */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
+  /* Background Colors - Deep Space Blue/Black from Image */
+  --bg-primary: #020617;
+  /* Slate 950 - deeper than before */
+  --bg-secondary: #0f172a;
+  /* Slate 900 */
+  --bg-tertiary: #1e293b;
+  /* Slate 800 */
 
   /* Text Colors */
-  --text-primary: #f1f5f9;
+  --text-primary: #f8fafc;
+  /* Slate 50 */
   --text-secondary: #cbd5e1;
+  /* Slate 300 */
   --text-tertiary: #94a3b8;
+  /* Slate 400 */
 
   /* Accent Colors */
   --accent-primary: #3b82f6;
+  /* Blue 500 */
   --accent-secondary: #f59e0b;
-  /* Updated to Amber */
-  --accent-hover: #60a5fa;
+  /* Amber 500 */
+  --accent-hover: #2563eb;
+  /* Blue 600 */
 
   /* Utility Colors */
   --success: #22c55e;
   --destructive: #ef4444;
 
   /* Border Colors */
-  --border-primary: #334155;
-  --border-secondary: #475569;
+  --border-primary: #1e293b;
+  --border-secondary: #334155;
 
   /* Card Colors */
-  --card-bg: rgba(30, 41, 59, 0.6);
-  --card-bg-hover: rgba(51, 65, 85, 0.8);
-  --card-border: #334155;
+  --card-bg: rgba(15, 23, 42, 0.7);
+  /* Translucent Slate 900 */
+  --card-bg-hover: rgba(30, 41, 59, 0.8);
+  --card-border: #1e293b;
 
   /* Navigation Colors */
-  --nav-bg: rgba(15, 23, 42, 0.95);
-  --nav-border: rgba(59, 130, 246, 0.4);
-  --nav-text: #e2e8f0;
+  --nav-bg: rgba(2, 6, 23, 0.95);
+  --nav-border: rgba(59, 130, 246, 0.2);
+  --nav-text: #cbd5e1;
   --nav-text-hover: #f59e0b;
-  --nav-active-bg: rgba(59, 130, 246, 0.15);
+  --nav-active-bg: rgba(59, 130, 246, 0.1);
 
   /* Gradient Backgrounds */
-  --gradient-start: #1e293b;
+  --gradient-start: #020617;
   --gradient-end: #0f172a;
 
   /* Shadow */
-  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
 body {
@@ -59,90 +68,6 @@ h4,
 h5,
 h6 {
   font-family: var(--font-orbitron), sans-serif;
-}
-
-/* Light Theme Variables - Optimized for readability & professional feel */
-:root[data-theme="light"] {
-  /* Background Colors - Soft, easy on eyes */
-  --bg-primary: #a8f078;
-  --bg-secondary: #80eb86;
-  --bg-tertiary: #ffffff;
-
-  /* Text Colors - High contrast for readability */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a5568;
-  --text-tertiary: #718096;
-
-  /* Accent Colors - Professional blue & energetic yellow */
-  --accent-primary: #2563eb;
-  --accent-secondary: #f59e0b;
-  --accent-hover: #1d4ed8;
-
-  /* Border Colors - Subtle separation */
-  --border-primary: #e2e8f0;
-  --border-secondary: #cbd5e0;
-
-  /* Card Colors - Clean white cards */
-  --card-bg: #ffffff;
-  --card-bg-hover: #f8fafc;
-  --card-border: #e2e8f0;
-
-  /* Navigation Colors - Professional & clean */
-  --nav-bg: rgba(250, 251, 252, 0.95);
-  --nav-border: #e2e8f0;
-  --nav-text: #4a5568;
-  --nav-text-hover: #1a1a1a;
-  --nav-active-bg: #f1f5f9;
-
-  /* Gradient Backgrounds - Soft, welcoming */
-  --gradient-start: #f0f9ff;
-  --gradient-end: #fef3c7;
-
-  /* Shadow - Subtle depth */
-  --shadow-color: rgba(0, 0, 0, 0.08);
-}
-
-/* Dark Theme Variables - Reduced eye strain, modern aesthetic */
-:root[data-theme="dark"] {
-  /* Background Colors - Deep but not pure black */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-
-  /* Text Colors - Optimized contrast (not pure white) */
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-
-  /* Accent Colors */
-  --accent-primary: #3b82f6;
-  /* Blue */
-  --accent-secondary: #f59e0b;
-  /* Amber/Yellow */
-  --accent-hover: #60a5fa;
-
-  /* Border Colors - Subtle in dark mode */
-  --border-primary: #334155;
-  --border-secondary: #475569;
-
-  /* Card Colors - Elevated surfaces */
-  --card-bg: rgba(30, 41, 59, 0.6);
-  --card-bg-hover: rgba(51, 65, 85, 0.8);
-  --card-border: #334155;
-
-  /* Navigation Colors - Enhanced glass morphism with blue accent */
-  --nav-bg: rgba(15, 23, 42, 0.95);
-  --nav-border: rgba(59, 130, 246, 0.4);
-  --nav-text: #e2e8f0;
-  --nav-text-hover: #fbbf24;
-  --nav-active-bg: rgba(59, 130, 246, 0.15);
-
-  /* Gradient Backgrounds - Atmospheric depth */
-  --gradient-start: #1e293b;
-  --gradient-end: #0f172a;
-
-  /* Shadow - Enhanced for dark mode */
-  --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
 @theme inline {
