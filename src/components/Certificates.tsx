@@ -198,7 +198,7 @@ const Certificates = () => {
     return certificates.filter(cert => cert.category === activeCategory);
   }, [activeCategory]);
 
-  const displayedCertificates = showAll ? filteredCertificates : filteredCertificates.slice(0, 6);
+  const displayedCertificates = showAll ? filteredCertificates : filteredCertificates.slice(0, 3);
 
   const openModal = (path: string) => setSelectedCert(path);
   const closeModal = () => setSelectedCert(null);
@@ -372,7 +372,7 @@ const Certificates = () => {
         </div>
 
         {/* View All Button */}
-        {filteredCertificates.length > 6 && (
+        {filteredCertificates.length > 3 && (
           <div className="text-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
