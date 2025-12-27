@@ -16,43 +16,43 @@ const techIcons = [
   { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
   { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
   { name: 'VB.NET', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualbasic/visualbasic-original.svg' },
-  
+
   // Web Technologies & Frameworks
   { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
   { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
   { name: 'Flask', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
-  
+
   // Database Systems
   { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
   { name: 'SQLite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg' },
   { name: 'JSON', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg' },
-  
+
   // Cloud Platforms & AI/ML
   { name: 'Google Cloud', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg' },
   { name: 'Vertex AI', icon: 'https://www.gstatic.com/bricks/image/me6u4lx8TR7uZxMdl7YC5WlyZC0P2y0LzMAYP3mICUJJz4x7eZ0AXWaXc3n9EPNxfvCoFc6Y3mmmGg.png' },
   { name: 'Gemini', icon: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
-  
+
   // DevOps & Version Control
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
   { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg' },
   { name: 'GitLab', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg' },
-  
+
   // Operating Systems
   { name: 'Windows', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg' },
   { name: 'Ubuntu', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg' },
   { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   { name: 'Arch Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg' },
-  
+
   // Deployment & Hosting
   { name: 'Netlify', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg' },
   { name: 'Railway', icon: 'https://railway.app/brand/logo-light.svg' },
-  
+
   // Automation & RPA  
   { name: 'UiPath', icon: 'https://cdn.worldvectorlogo.com/logos/uipath-2.svg' },
-  
+
   // Cybersecurity
   { name: 'Kali Linux', icon: 'https://www.kali.org/images/kali-dragon-icon.svg' },
 ];
@@ -118,9 +118,9 @@ const Skills = () => {
   // Smooth animation loop
   useEffect(() => {
     if (!isMounted) return;
-    
+
     let lastTime = Date.now();
-    
+
     const animate = () => {
       const currentTime = Date.now();
       const deltaTime = (currentTime - lastTime) / 1000;
@@ -151,15 +151,15 @@ const Skills = () => {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!sphereRef.current) return;
-    
+
     const rect = sphereRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     // Normalized mouse position (-1 to 1)
     const x = (e.clientX - centerX) / (rect.width / 2);
     const y = (e.clientY - centerY) / (rect.height / 2);
-    
+
     // Set target rotation based on mouse position
     // Moving right increases Y rotation (rotates right)
     // Moving down increases X rotation (rotates down)
@@ -178,27 +178,29 @@ const Skills = () => {
   const getIconPosition = (index: number, total: number) => {
     const phi = Math.acos(-1 + (2 * index) / total);
     const theta = Math.sqrt(total * Math.PI) * phi;
-    
+
     const baseX = Math.cos(theta) * Math.sin(phi);
     const baseY = Math.sin(theta) * Math.sin(phi);
     const baseZ = Math.cos(phi);
-    
+
     // Apply rotation
     const rotX = rotationRef.current.x * (Math.PI / 180);
     const rotY = rotationRef.current.y * (Math.PI / 180);
-    
+
     // Rotate around Y axis
     const x1 = baseX * Math.cos(rotY) - baseZ * Math.sin(rotY);
     const z1 = baseX * Math.sin(rotY) + baseZ * Math.cos(rotY);
-    
+
     // Rotate around X axis
     const y2 = baseY * Math.cos(rotX) - z1 * Math.sin(rotX);
     const z2 = baseY * Math.sin(rotX) + z1 * Math.cos(rotX);
-    
-    const radius = 180;
+
+    // Responsive radius based on screen width
+    const isMobile = window.innerWidth < 640;
+    const radius = isMobile ? 130 : 180;
     const scale = (z2 + 1.5) / 2.5;
     const opacity = Math.max(0.3, (z2 + 1) / 2);
-    
+
     return {
       x: Number(x1 * radius).toFixed(2),
       y: Number(y2 * radius).toFixed(2),
@@ -209,7 +211,7 @@ const Skills = () => {
   };
 
   const [, setTick] = useState(0);
-  
+
   useEffect(() => {
     if (!isMounted) return;
     const interval = setInterval(() => {
@@ -219,19 +221,19 @@ const Skills = () => {
   }, [isMounted]);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="skills" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+      id="skills"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <h2 
+        <h2
           ref={titleRef}
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-16 text-center"
         >
           Technical <span className="text-accent-secondary">Skills</span>
         </h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Services Content */}
           <div ref={contentRef} className="space-y-8">
@@ -241,8 +243,8 @@ const Skills = () => {
                 I offer a Full-cycle of <span className="text-accent-secondary">Web Development</span> Services
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                With more than <span className="text-accent-primary font-semibold">1+ years</span> of experience, 
-                I have been accomplishing projects with modern Web Development, new generation programming languages, 
+                With more than <span className="text-accent-primary font-semibold">1+ years</span> of experience,
+                I have been accomplishing projects with modern Web Development, new generation programming languages,
                 and Full Stack development to deliver cost-effective solutions.
               </p>
             </div>
@@ -252,9 +254,9 @@ const Skills = () => {
               <div className="bg-card-bg backdrop-blur-sm border border-card-border rounded-xl p-5 hover:scale-105 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-2.5 rounded-lg group-hover:scale-110 transition-transform shadow-md">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
-                      alt="Full Stack" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                      alt="Full Stack"
                       className="w-7 h-7"
                     />
                   </div>
@@ -266,9 +268,9 @@ const Skills = () => {
               <div className="bg-card-bg backdrop-blur-sm border border-card-border rounded-xl p-5 hover:scale-105 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="bg-gradient-to-br from-green-500 to-green-700 p-2.5 rounded-lg group-hover:scale-110 transition-transform shadow-md">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" 
-                      alt="UI/UX" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                      alt="UI/UX"
                       className="w-7 h-7"
                     />
                   </div>
@@ -280,9 +282,9 @@ const Skills = () => {
               <div className="bg-card-bg backdrop-blur-sm border border-card-border rounded-xl p-5 hover:scale-105 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-2.5 rounded-lg group-hover:scale-110 transition-transform shadow-md">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" 
-                      alt="AI/ML" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                      alt="AI/ML"
                       className="w-7 h-7"
                     />
                   </div>
@@ -294,9 +296,9 @@ const Skills = () => {
               <div className="bg-card-bg backdrop-blur-sm border border-card-border rounded-xl p-5 hover:scale-105 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="bg-gradient-to-br from-orange-500 to-orange-700 p-2.5 rounded-lg group-hover:scale-110 transition-transform shadow-md">
-                    <img 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" 
-                      alt="Cybersecurity" 
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                      alt="Cybersecurity"
                       className="w-7 h-7"
                     />
                   </div>
@@ -308,20 +310,20 @@ const Skills = () => {
           </div>
 
           {/* Right Side - Interactive 3D Sphere */}
-          <div 
+          <div
             ref={sphereRef}
-            className="relative w-full h-[500px] flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className="relative w-full h-[350px] sm:h-[500px] flex items-center justify-center cursor-grab active:cursor-grabbing"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={handleMouseLeave}
           >
             {/* Background glow effect */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-80 h-80 bg-accent-primary/10 rounded-full blur-3xl animate-pulse"></div>
+              <div className="w-60 h-60 sm:w-80 sm:h-80 bg-accent-primary/10 rounded-full blur-3xl animate-pulse"></div>
             </div>
 
             {/* Tech icons sphere */}
-            <div className="relative w-[400px] h-[400px]">
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
               {isMounted && techIcons.map((tech, index) => {
                 const pos = getIconPosition(index, techIcons.length);
                 // Calculate how far back the icon is (0 = front, 1 = back)
@@ -339,13 +341,13 @@ const Skills = () => {
                       zIndex: Math.round((pos.z + 1) * 10),
                     }}
                   >
-                    <img 
-                      src={tech.icon} 
+                    <img
+                      src={tech.icon}
                       alt={tech.name}
                       className="w-12 h-12 sm:w-14 sm:h-14 drop-shadow-lg"
                       style={{
-                        filter: pos.z < 0 
-                          ? `grayscale(${0.3 + backAmount * 0.5}) brightness(${1 - backAmount * 0.3}) opacity(${0.7 - backAmount * 0.2})` 
+                        filter: pos.z < 0
+                          ? `grayscale(${0.3 + backAmount * 0.5}) brightness(${1 - backAmount * 0.3}) opacity(${0.7 - backAmount * 0.2})`
                           : 'none',
                       }}
                     />
@@ -354,7 +356,7 @@ const Skills = () => {
               })}
             </div>
 
-            </div>
+          </div>
         </div>
       </div>
     </section>

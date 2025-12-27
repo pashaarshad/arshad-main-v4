@@ -19,6 +19,13 @@ const cherryCreamSoda = Cherry_Cream_Soda({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userObfuscation: false,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://arshadpasha.com'),
   title: {
