@@ -216,7 +216,7 @@ const Skills = () => {
 
     // Responsive radius based on screen width
     const isMobile = window.innerWidth < 640;
-    const radius = isMobile ? 180 : 250;
+    const radius = isMobile ? 170 : 250;
     const scale = (z2 + 1.5) / 2.5;
     const opacity = Math.max(0.3, (z2 + 1) / 2);
 

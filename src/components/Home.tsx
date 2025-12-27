@@ -83,9 +83,26 @@ const Home = () => {
 
 
       {/* Animated background elements */}
+      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
         <div className="absolute w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+        {/* Meteor Shower */}
+        <div className="meteor-shower-container">
+          {[...Array(15)].map((_, i) => (
+            <span
+              key={i}
+              className="meteor-effect"
+              style={{
+                top: Math.floor(Math.random() * 50) + '%',
+                left: 50 + Math.floor(Math.random() * 50) + '%',
+                animationDelay: i * 0.8 + 's',
+                animationDuration: Math.floor(Math.random() * 3 + 3) + 's',
+              }}
+            ></span>
+          ))}
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
