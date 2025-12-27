@@ -6,6 +6,7 @@ import Typed from 'typed.js';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import PixelBlast from './PixelBlast';
+import NextImage from 'next/image';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
@@ -19,30 +20,30 @@ const Home = () => {
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    
+
     tl.fromTo(
       titleRef.current,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 1 }
     )
-    .fromTo(
-      subtitleRef.current,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8 },
-      '-=0.5'
-    )
-    .fromTo(
-      ctaRef.current,
-      { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 0.6 },
-      '-=0.4'
-    )
-    .fromTo(
-      socialRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6 },
-      '-=0.3'
-    );
+      .fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.5'
+      )
+      .fromTo(
+        ctaRef.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 0.6 },
+        '-=0.4'
+      )
+      .fromTo(
+        socialRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.3'
+      );
 
     // Typed.js animation
     if (typedRef.current) {
@@ -70,8 +71,8 @@ const Home = () => {
   }, []);
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300 -mt-32 pt-40"
       suppressHydrationWarning
     >
@@ -108,7 +109,7 @@ const Home = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Content */}
           <div className="text-center lg:text-left">
-            <h1 
+            <h1
               ref={titleRef}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
             >
@@ -127,13 +128,13 @@ const Home = () => {
                 className="transition-all duration-300 transform hover:scale-110"
                 aria-label="LinkedIn"
               >
-                <img 
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
-                  alt="LinkedIn" 
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                  alt="LinkedIn"
                   className="w-10 h-10 sm:w-12 sm:h-12"
                 />
               </a>
-              
+
               {/* WhatsApp */}
               <a
                 href="https://wa.me/+917760554350"
@@ -142,13 +143,13 @@ const Home = () => {
                 className="transition-all duration-300 transform hover:scale-110"
                 aria-label="WhatsApp"
               >
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                  alt="WhatsApp" 
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  alt="WhatsApp"
                   className="w-10 h-10 sm:w-12 sm:h-12"
                 />
               </a>
-              
+
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/arshadpasha65?igsh=MWs1YnQyOXdpZzd1eQ=="
@@ -157,13 +158,13 @@ const Home = () => {
                 className="transition-all duration-300 transform hover:scale-110"
                 aria-label="Instagram"
               >
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-                  alt="Instagram" 
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                  alt="Instagram"
                   className="w-10 h-10 sm:w-12 sm:h-12"
                 />
               </a>
-              
+
               {/* Resume/CV */}
               <a
                 href="/assets/resume/MAIN Oct Resume.pdf"
@@ -172,13 +173,13 @@ const Home = () => {
                 className="transition-all duration-300 transform hover:scale-110"
                 aria-label="Resume"
               >
-                <img 
-                  src="https://cdn-icons-png.flaticon.com/512/909/909212.png" 
-                  alt="Resume" 
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/909/909212.png"
+                  alt="Resume"
                   className="w-10 h-10 sm:w-12 sm:h-12"
                 />
               </a>
-              
+
               {/* GitHub */}
               <a
                 href="https://github.com/pashaarshad"
@@ -187,9 +188,9 @@ const Home = () => {
                 className="transition-all duration-300 transform hover:scale-110"
                 aria-label="GitHub"
               >
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" 
-                  alt="GitHub" 
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                  alt="GitHub"
                   className="w-10 h-10 sm:w-12 sm:h-12 dark:filter dark:invert dark:brightness-200"
                 />
               </a>
@@ -231,34 +232,36 @@ const Home = () => {
               className="rounded-2xl shadow-2xl overflow-hidden"
             >
               <SwiperSlide>
-                <div className="relative group overflow-hidden">
-                  <img 
-                    src="/arshad_home_good.jpg" 
-                    alt="Arshad Pasha - Infosys" 
-                    className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/fallback.jpg"; }}
+                <div className="relative group overflow-hidden w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_home_good.jpg"
+                    alt="Arshad Pasha - Infosys"
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative group overflow-hidden">
-                  <img 
-                    src="/arshad_sap_home.jpg" 
-                    alt="Arshad Pasha - SAP" 
-                    className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/fallback.jpg"; }}
+                <div className="relative group overflow-hidden w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_sap_home.jpg"
+                    alt="Arshad Pasha - SAP"
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </SwiperSlide>
-                <SwiperSlide>
-                <div className="relative group overflow-hidden">
-                  <img 
-                    src="/arshad_infosysLogo.jpg" 
-                    alt="Arshad Pasha - SAP" 
-                    className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/fallback.jpg"; }}
+              <SwiperSlide>
+                <div className="relative group overflow-hidden w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_infosysLogo.jpg"
+                    alt="Arshad Pasha - SAP"
+                    fill
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>

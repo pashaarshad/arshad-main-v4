@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import NextImage from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,19 +64,19 @@ const About = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="about" 
+      id="about"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <h2 
+        <h2
           ref={titleRef}
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-12 text-center"
         >
           About <span className="text-accent-secondary">Me</span>
         </h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
           {/* Left Side - Image Carousel */}
           <div className="relative order-2 lg:order-1">
@@ -101,31 +102,34 @@ const About = () => {
               className="rounded-2xl shadow-2xl overflow-hidden about-swiper"
             >
               <SwiperSlide>
-                <div className="relative group">
-                  <img 
-                    src="/arshad_about.jpg" 
-                    alt="Arshad Pasha - About" 
-                    className="w-full h-[500px] object-cover"
+                <div className="relative group w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_about.jpg"
+                    alt="Arshad Pasha - About"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative group">
-                  <img 
-                    src="/arshad_sap_about.jpg" 
-                    alt="Arshad Pasha - SAP" 
-                    className="w-full h-[500px] object-cover"
+                <div className="relative group w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_sap_about.jpg"
+                    alt="Arshad Pasha - SAP"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative group">
-                  <img 
-                    src="/arshad_infosys_about.jpg" 
-                    alt="Arshad Pasha - Infosys" 
-                    className="w-full h-[500px] object-cover"
+                <div className="relative group w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                  <NextImage
+                    src="/arshad_infosys_about.jpg"
+                    alt="Arshad Pasha - Infosys"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
@@ -136,12 +140,12 @@ const About = () => {
             <div className="absolute bottom-[7%] -right-8 sm:-right-4 z-20 w-36 h-36 sm:w-48 sm:h-48">
               <div className="relative w-full h-full bg-white rounded-full shadow-2xl border-[3px] border-black">
                 {/* Animated rotating circle with text */}
-                <svg 
+                <svg
                   className="w-full h-full animate-spin-slow"
                   viewBox="0 0 200 200"
                 >
                   <defs>
-                    <path 
+                    <path
                       id="aboutExperienceCirclePath"
                       d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
                     />
@@ -152,10 +156,10 @@ const About = () => {
                     </textPath>
                   </text>
                 </svg>
-                
+
                 {/* Center content with 1 - image inside the number, with animated background */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div 
+                  <div
                     className="text-5xl sm:text-6xl font-bold bg-clip-text text-transparent experience-number-bg"
                     style={{
                       backgroundImage: 'url(/arshad_about.jpg)',
@@ -175,18 +179,18 @@ const About = () => {
           </div>
 
           {/* Right Side - Professional Summary */}
-          <div 
+          <div
             ref={summaryRef}
             className="bg-card-bg backdrop-blur-sm border border-card-border rounded-2xl p-6 sm:p-8 shadow-2xl transition-colors duration-300 order-1 lg:order-2 flex flex-col justify-center"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-accent-secondary mb-4 sm:mb-6">Professional Summary</h3>
             <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
-              Motivated Full Stack Web Developer with expertise in <span className="text-accent-primary font-semibold">Front-end</span> and <span className="text-accent-primary font-semibold">Back-end</span> development 
-              using ReactJS, NextJS, and MySQL, along with strong skills in Automation and cybersecurity. 
-              Experienced in delivering <span className="text-accent-secondary font-semibold">10+ real-world projects</span>, including UiPath-powered 
-              RPA workflows, expert use of GitHub and GitLab for version control, and secure applications with 
-              Encryption and Ethical hacking practices. Certified in <span className="text-green-500 font-semibold">Google Cloud</span>, 
-              <span className="text-green-500 font-semibold"> Infosys Springboard</span>, and <span className="text-green-500 font-semibold">Oracle Cloud</span>, 
+              Motivated Full Stack Web Developer with expertise in <span className="text-accent-primary font-semibold">Front-end</span> and <span className="text-accent-primary font-semibold">Back-end</span> development
+              using ReactJS, NextJS, and MySQL, along with strong skills in Automation and cybersecurity.
+              Experienced in delivering <span className="text-accent-secondary font-semibold">10+ real-world projects</span>, including UiPath-powered
+              RPA workflows, expert use of GitHub and GitLab for version control, and secure applications with
+              Encryption and Ethical hacking practices. Certified in <span className="text-green-500 font-semibold">Google Cloud</span>,
+              <span className="text-green-500 font-semibold"> Infosys Springboard</span>, and <span className="text-green-500 font-semibold">Oracle Cloud</span>,
               with practical exposure to Vertex AI, API integration, and data-driven solutions.
             </p>
           </div>

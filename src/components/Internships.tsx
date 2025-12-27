@@ -22,59 +22,59 @@ const Internships = () => {
   const pdfLibLoadedRef = useRef(false);
 
   const internships: Internship[] = [
-    { 
-      filename: 'AICTE B1 PD Certificate-30.pdf', 
-      title: 'Cyber Security Internship', 
-      organization: 'AICTE & Edunet Foundation', 
-      date: 'June 2025', 
+    {
+      filename: 'AICTE B1 PD Certificate-30.pdf',
+      title: 'Cyber Security Internship',
+      organization: 'AICTE & Edunet Foundation',
+      date: 'June 2025',
       description: '6-week virtual internship program focused on Cyber Security fundamentals, threat analysis, and security best practices.',
       skills: ['Cyber Security', 'Threat Analysis', 'Network Security', 'Security Protocols']
     },
-    { 
-      filename: 'Arshad  Pasha_AICTE_Certificate (3).pdf', 
-      title: 'AI and Data Analytics Internship', 
-      organization: 'AICTE, Shell India & Edunet Foundation', 
-      date: 'July - August 2025', 
+    {
+      filename: 'Arshad  Pasha_AICTE_Certificate (3).pdf',
+      title: 'AI and Data Analytics Internship',
+      organization: 'AICTE, Shell India & Edunet Foundation',
+      date: 'July - August 2025',
       description: '4-week intensive internship on AI & Data Analytics focused on Green Skills and sustainable technology solutions.',
       skills: ['AI', 'Data Analytics', 'Green Skills', 'Python']
     },
-    { 
-      filename: 'Arshad  Pasha_AICTE_Certificate.pdf', 
-      title: 'AI and Data Analytics Program', 
-      organization: 'AICTE, Shell India & Edunet Foundation', 
-      date: 'June - July 2025', 
+    {
+      filename: 'Arshad  Pasha_AICTE_Certificate.pdf',
+      title: 'AI and Data Analytics Program',
+      organization: 'AICTE, Shell India & Edunet Foundation',
+      date: 'June - July 2025',
       description: '4-week virtual internship under Skills4Future program focusing on artificial intelligence and data analytics.',
       skills: ['Machine Learning', 'Data Science', 'AI Fundamentals', 'Analytics']
     },
-    { 
-      filename: 'Arshad Pasha __ID__ (1) (1).pdf', 
-      title: 'Full Stack Development Internship', 
-      organization: 'Micro IT', 
-      date: 'April 2025', 
+    {
+      filename: 'Arshad Pasha __ID__ (1) (1).pdf',
+      title: 'Full Stack Development Internship',
+      organization: 'Micro IT',
+      date: 'April 2025',
       description: '1-month comprehensive Full Stack Development certification program covering frontend, backend, and database technologies.',
       skills: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Full Stack']
     },
-    { 
-      filename: 'Arshad Pasha_Completion_Certificate.pdf', 
-      title: 'Web Development Internship', 
-      organization: 'NexusLogic Technologies', 
-      date: 'March - May 2025', 
+    {
+      filename: 'Arshad Pasha_Completion_Certificate.pdf',
+      title: 'Web Development Internship',
+      organization: 'NexusLogic Technologies',
+      date: 'March - May 2025',
       description: '2-month internship as Web Development Intern, building responsive web applications and learning modern web technologies.',
       skills: ['HTML/CSS', 'JavaScript', 'Responsive Design', 'Web Development']
     },
-    { 
-      filename: 'Foundations of AI certificate.pdf', 
-      title: 'Foundations of Artificial Intelligence', 
-      organization: 'Microsoft, AICTE & Edunet Foundation', 
-      date: 'April - May 2025', 
+    {
+      filename: 'Foundations of AI certificate.pdf',
+      title: 'Foundations of Artificial Intelligence',
+      organization: 'Microsoft, AICTE & Edunet Foundation',
+      date: 'April - May 2025',
       description: '4-week Microsoft initiative internship program covering AI fundamentals, machine learning concepts, and practical applications.',
       skills: ['AI Foundations', 'Microsoft AI', 'Machine Learning', 'Deep Learning']
     },
-    { 
-      filename: 'ThegoodgameTheory.pdf', 
-      title: 'Game Theory Research Internship', 
-      organization: 'The Good Game Theory', 
-      date: 'July 2025 - Ongoing', 
+    {
+      filename: 'ThegoodgameTheory.pdf',
+      title: 'Game Theory Research Internship',
+      organization: 'The Good Game Theory',
+      date: 'July 2025 - Ongoing',
       description: '6-month research internship focusing on game theory principles, strategic decision making, and practical applications.',
       skills: ['Game Theory', 'Research', 'Strategic Analysis', 'Decision Making'],
       isOngoing: true
@@ -89,7 +89,7 @@ const Internships = () => {
       script.async = true;
       script.onload = () => {
         if ((window as any).pdfjsLib) {
-          (window as any).pdfjsLib.GlobalWorkerOptions.workerSrc = 
+          (window as any).pdfjsLib.GlobalWorkerOptions.workerSrc =
             'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
           pdfLibLoadedRef.current = true;
         }
@@ -154,7 +154,7 @@ const Internships = () => {
         // localStorage might be full, clear old data
         try {
           localStorage.removeItem('internshipPreviewsCache');
-        } catch {}
+        } catch { }
       }
     }
   }, [pdfPreviews]);
@@ -216,8 +216,8 @@ const Internships = () => {
   };
 
   return (
-    <section 
-      id="internships" 
+    <section
+      id="internships"
       className="min-h-screen bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto w-full">
@@ -257,20 +257,21 @@ const Internships = () => {
             const filePath = `/assets/intenships/${internship.filename}`;
             const previewKey = `internship-${index}`;
             const isVisible = visibleCards.has(index);
-            
+
             if (typeof window !== 'undefined' && isVisible && !pdfPreviews[previewKey] && !loadingStates[previewKey] && pdfLibLoadedRef.current) {
               setTimeout(() => generatePdfPreview(filePath, previewKey), 50);
             }
-            
+
             return (
-              <div 
+              <div
                 key={index}
                 ref={(node) => cardRef(node, index)}
-                className="group bg-card-bg backdrop-blur-sm border border-card-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-accent-primary/10 transition-all duration-500 hover:-translate-y-2"
+                className={`group bg-card-bg backdrop-blur-sm border border-card-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-accent-primary/10 transition-all duration-500 hover:-translate-y-2 hover-glow animate-fade-up`}
+                style={{ animationDelay: `${index * 0.15}s` }}
                 suppressHydrationWarning
               >
                 {/* Certificate Preview */}
-                <div 
+                <div
                   className="relative h-56 sm:h-64 overflow-hidden cursor-pointer"
                   onClick={() => openModal(filePath, internship)}
                 >
@@ -283,25 +284,29 @@ const Internships = () => {
                       </span>
                     </div>
                   )}
-                  
+
                   {!isVisible ? (
-                    <div className="flex items-center justify-center h-full bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10">
+                    <div className="flex items-center justify-center h-full loading-placeholder">
                       <div className="text-center">
-                        <div className="text-5xl mb-3 animate-spin" style={{ animationDuration: '2s' }}>⏳</div>
-                        <p className="text-text-secondary text-sm font-medium">Scroll to load...</p>
+                        <div className="ring-loader mx-auto mb-3"></div>
+                        <p className="text-text-secondary text-sm font-medium gradient-wave bg-clip-text text-transparent">Scroll to load...</p>
                       </div>
                     </div>
                   ) : loadingStates[previewKey] || !pdfPreviews[previewKey] ? (
-                    <div className="flex items-center justify-center h-full bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10">
+                    <div className="flex items-center justify-center h-full loading-placeholder">
                       <div className="text-center">
-                        <div className="text-5xl mb-3 animate-spin" style={{ animationDuration: '2s' }}>⏳</div>
+                        <div className="dot-loader mx-auto mb-4">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
                         <p className="text-text-secondary text-sm font-medium">Loading certificate...</p>
                       </div>
                     </div>
                   ) : (
                     <>
-                      <img 
-                        src={pdfPreviews[previewKey]} 
+                      <img
+                        src={pdfPreviews[previewKey]}
                         alt={internship.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -333,18 +338,18 @@ const Internships = () => {
                       {internship.title}
                     </h3>
                   </div>
-                  
+
                   <p className="text-accent-secondary font-semibold text-sm mb-2">
                     {internship.organization}
                   </p>
-                  
+
                   <div className="flex items-center gap-2 mb-3">
                     <svg className="w-4 h-4 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span className="text-text-tertiary text-sm">{internship.date}</span>
                   </div>
-                  
+
                   <p className="text-text-secondary text-sm line-clamp-2 mb-4">
                     {internship.description}
                   </p>
@@ -353,7 +358,7 @@ const Internships = () => {
                   {internship.skills && (
                     <div className="flex flex-wrap gap-1.5">
                       {internship.skills.slice(0, 3).map((skill, i) => (
-                        <span 
+                        <span
                           key={i}
                           className="bg-accent-primary/10 text-accent-primary text-xs px-2.5 py-1 rounded-full font-medium border border-accent-primary/20"
                         >
@@ -376,11 +381,11 @@ const Internships = () => {
 
       {/* Internship Modal */}
       {selectedInternship && selectedInfo && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
           onClick={closeModal}
         >
-          <div 
+          <div
             className="relative bg-bg-secondary border border-card-border rounded-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -443,7 +448,7 @@ const Internships = () => {
               {selectedInfo.skills && (
                 <div className="flex flex-wrap gap-2">
                   {selectedInfo.skills.map((skill, i) => (
-                    <span 
+                    <span
                       key={i}
                       className="bg-accent-primary/15 text-accent-primary text-sm px-3 py-1.5 rounded-full font-medium border border-accent-primary/25"
                     >
@@ -456,9 +461,9 @@ const Internships = () => {
 
             {/* PDF Viewer */}
             <div className="h-[60vh] overflow-auto">
-              <iframe 
-                src={selectedInternship} 
-                className="w-full h-full" 
+              <iframe
+                src={selectedInternship}
+                className="w-full h-full"
                 title="Internship Certificate"
               />
             </div>

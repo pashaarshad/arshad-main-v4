@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import NextImage from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,17 +18,17 @@ const Footer = () => {
   }, []);
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
       minute: '2-digit',
-      hour12: true 
+      hour12: true
     });
   };
 
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', { 
+    return date.toLocaleDateString('en-US', {
       weekday: 'short',
-      month: 'short', 
+      month: 'short',
       day: 'numeric',
       year: 'numeric'
     });
@@ -38,11 +39,11 @@ const Footer = () => {
     const hours = date.getHours() % 12;
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-    
+
     const hourAngle = (hours * 30) + (minutes * 0.5);
     const minuteAngle = minutes * 6;
     const secondAngle = seconds * 6;
-    
+
     return { hourAngle, minuteAngle, secondAngle };
   };
 
@@ -53,7 +54,7 @@ const Footer = () => {
       {/* Blue Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent"></div>
-      
+
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -76,7 +77,7 @@ const Footer = () => {
       {/* Main Footer Content */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-          
+
           {/* Left Side - Analog Clock */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start">
             {/* Analog Clock */}
@@ -84,7 +85,7 @@ const Footer = () => {
               <div className="relative w-32 h-32 mb-4">
                 {/* Clock outer glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full blur-md opacity-50 animate-pulse"></div>
-                
+
                 {/* Clock face */}
                 <div className="relative w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-full border-4 border-blue-500/50 shadow-2xl flex items-center justify-center">
                   {/* Clock markers */}
@@ -98,7 +99,7 @@ const Footer = () => {
                       }}
                     ></div>
                   ))}
-                  
+
                   {/* Hour hand */}
                   <div
                     className="absolute w-1.5 h-8 bg-gradient-to-t from-cyan-400 to-blue-300 rounded-full origin-bottom"
@@ -107,7 +108,7 @@ const Footer = () => {
                       bottom: '50%',
                     }}
                   ></div>
-                  
+
                   {/* Minute hand */}
                   <div
                     className="absolute w-1 h-11 bg-gradient-to-t from-blue-400 to-cyan-300 rounded-full origin-bottom"
@@ -116,7 +117,7 @@ const Footer = () => {
                       bottom: '50%',
                     }}
                   ></div>
-                  
+
                   {/* Second hand */}
                   <div
                     className="absolute w-0.5 h-12 bg-yellow-400 rounded-full origin-bottom"
@@ -125,20 +126,20 @@ const Footer = () => {
                       bottom: '50%',
                     }}
                   ></div>
-                  
+
                   {/* Center dot */}
                   <div className="absolute w-3 h-3 bg-yellow-400 rounded-full shadow-lg"></div>
                 </div>
               </div>
             )}
-            
+
             <p className="text-2xl font-bold text-white font-mono tracking-wider">
               {currentTime ? formatTime(currentTime) : '--:-- --'}
             </p>
             <p className="text-xs text-blue-300 mt-1">
               {currentTime ? formatDate(currentTime) : '---'}
             </p>
-            
+
             {/* Motivational Quote */}
             <p className="mt-4 text-yellow-400 font-bold italic text-sm">
               &ldquo;I Can and I Will&rdquo;
@@ -150,9 +151,9 @@ const Footer = () => {
             <p className="text-xs text-blue-300 uppercase tracking-[0.3em] mb-6">Quick Links</p>
             <div className="flex flex-wrap justify-center gap-4 mb-6">
               {['Home', 'About', 'Skills', 'Projects', 'Certificates', 'Contact'].map((link, index) => (
-                <a 
+                <a
                   key={link}
-                  href={`#${link.toLowerCase()}`} 
+                  href={`#${link.toLowerCase()}`}
                   className="group relative px-5 py-2.5 text-sm font-semibold text-blue-100 uppercase tracking-wider overflow-hidden rounded-xl transition-all duration-500 hover:text-white hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -170,7 +171,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            
+
             {/* Social Links with glow effect */}
             <div className="flex justify-center gap-5 mb-6">
               {[
@@ -178,49 +179,49 @@ const Footer = () => {
                 { href: 'https://github.com/pashaarshad', icon: 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z', color: 'hover:text-purple-400 hover:shadow-purple-500/50' },
                 { href: 'https://www.instagram.com/arshadpasha65', icon: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z', color: 'hover:text-pink-400 hover:shadow-pink-500/50' },
               ].map((social, index) => (
-                <a 
+                <a
                   key={index}
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`text-blue-300 transition-all duration-300 hover:scale-125 hover:shadow-lg ${social.color} p-2 rounded-full`}
                 >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d={social.icon} clipRule="evenodd"/></svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d={social.icon} clipRule="evenodd" /></svg>
                 </a>
               ))}
-              <a 
-                href="mailto:arshadpashaintern@gmail.com" 
+              <a
+                href="mailto:arshadpashaintern@gmail.com"
                 className="text-blue-300 transition-all duration-300 hover:scale-125 hover:text-red-400 hover:shadow-lg hover:shadow-red-500/50 p-2 rounded-full"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </a>
             </div>
-            
+
             {/* Visitor Counter */}
             <div className="relative group">
               {/* Outer glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl blur-sm opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
-              
+
               {/* Counter container */}
               <div className="relative px-6 py-4 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-xl border border-blue-500/30 shadow-2xl">
                 {/* Top shine */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
-                
+
                 <p className="text-[10px] text-blue-300 uppercase tracking-[0.25em] mb-2 text-center font-medium">Visitors</p>
-                
+
                 <div className="flex items-center justify-center gap-2">
                   <svg className="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                   </svg>
-                  <img 
+                  <img
                     src="https://hitwebcounter.com/counter/counter.php?page=10964565&style=0006&nbdigits=5&type=page&initCount=0"
-                    title="Visitor Counter" 
-                    alt="Visit counter" 
+                    title="Visitor Counter"
+                    alt="Visit counter"
                     className="inline-block"
                   />
                 </div>
-                
+
                 {/* Bottom shine */}
                 <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent"></div>
               </div>
@@ -246,7 +247,7 @@ const Footer = () => {
                   <circle cx="50" cy="50" r="48" fill="none" stroke="url(#gradient1)" strokeWidth="3" strokeDasharray="20 10" />
                 </svg>
               </div>
-              
+
               {/* Inner spinning ring - reverse */}
               <div className="absolute inset-2 rounded-full animate-spin-slow-reverse" style={{ animationDuration: '6s' }}>
                 <svg className="w-full h-full" viewBox="0 0 100 100">
@@ -260,20 +261,21 @@ const Footer = () => {
                   <circle cx="50" cy="50" r="46" fill="none" stroke="url(#gradient2)" strokeWidth="2" strokeDasharray="15 8" />
                 </svg>
               </div>
-              
+
               {/* Glow effect */}
               <div className="absolute inset-4 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-full blur-xl animate-pulse"></div>
-              
+
               {/* Logo */}
               <div className="absolute inset-4 flex items-center justify-center">
-                <img 
-                  src="/ap_logo.png" 
-                  alt="Arshad Pasha Logo" 
-                  className="w-full h-full object-contain drop-shadow-2xl"
+                <NextImage
+                  src="/ap_logo.png"
+                  alt="Arshad Pasha Logo"
+                  fill
+                  className="object-contain drop-shadow-2xl"
                 />
               </div>
             </div>
-            
+
             <h3 className="text-2xl font-bold">
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">ARSHAD PASHA</span>
             </h3>
