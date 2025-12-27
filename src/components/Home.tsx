@@ -76,7 +76,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300 -mt-32 pt-40"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gradient-start via-bg-secondary to-gradient-end px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-300 pt-28"
       suppressHydrationWarning
     >
       {/* PixelBlast Background - Only on Desktop */}
@@ -94,11 +94,11 @@ const Home = () => {
           <div className="text-center lg:text-left">
             <h1
               ref={titleRef}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
             >
               <span className="text-text-secondary">HI,</span><br />
               <span className="text-text-primary">I Am <span className="text-accent-secondary">Arshad Pasha</span></span><br />
-              <span ref={typedRef} className="text-accent-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl"></span>
+              <span ref={typedRef} className="text-accent-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl"></span>
             </h1>
 
             {/* Social Links */}
