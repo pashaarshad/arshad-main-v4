@@ -216,7 +216,7 @@ const Skills = () => {
 
     // Responsive radius based on screen width
     const isMobile = window.innerWidth < 640;
-    const radius = isMobile ? 130 : 180;
+    const radius = isMobile ? 180 : 250;
     const scale = (z2 + 1.5) / 2.5;
     const opacity = Math.max(0.3, (z2 + 1) / 2);
 
@@ -331,7 +331,7 @@ const Skills = () => {
           {/* Right Side - Interactive 3D Sphere */}
           <div
             ref={sphereRef}
-            className="relative w-full h-[350px] sm:h-[500px] flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className="relative w-full h-[450px] sm:h-[600px] flex items-center justify-center cursor-grab active:cursor-grabbing"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={handleMouseLeave}
@@ -342,7 +342,7 @@ const Skills = () => {
             </div>
 
             {/* Tech icons sphere */}
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
+            <div className="relative w-[360px] h-[360px] sm:w-[500px] sm:h-[500px]">
               {isMounted && techIcons.map((tech, index) => {
                 const pos = getIconPosition(index, techIcons.length);
                 // Calculate how far back the icon is (0 = front, 1 = back)
@@ -363,7 +363,7 @@ const Skills = () => {
                     <img
                       src={tech.icon}
                       alt={tech.name}
-                      className="w-12 h-12 sm:w-14 sm:h-14 drop-shadow-lg"
+                      className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-lg"
                       style={{
                         filter: pos.z < 0
                           ? `grayscale(${0.3 + backAmount * 0.5}) brightness(${1 - backAmount * 0.3}) opacity(${0.7 - backAmount * 0.2})`
